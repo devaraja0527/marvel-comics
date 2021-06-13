@@ -1,0 +1,15 @@
+server:
+  servlet:
+    contextPath: /v1/public
+
+    
+
+marvel:
+  url: http://gateway.marvel.com/v1/public
+  publicKey: fe7ca2ecda048009a30a86016adf448f
+  privateKey: b472bdc3d52b20cb1e69f14c335799c07124cd7c
+
+ibmwatson:
+    url: https://api.eu-gb.language-translator.watson.cloud.ibm.com
+    apiKey: aemzVjaD7RyVUVyRJU9xZlDVPaaCRtz7X2IhDmojXia2
+    
