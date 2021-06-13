@@ -74,8 +74,8 @@ For the following marvel key's create developer account in [https://developer.ma
 
 For API Url refer to API documentation in the same menu.
 
-``` yaml
-marvel:
+``` yml
+	marvel:
 	  url: {MARVEL_API_GATEWAY_URL}
 	  publicKey: {DEVELOPER_ACCOUNT_PUBLIC_KEY}
 	  privateKey: {DEVELOPER_ACCOUNT_PRIVE_KEY}	  
