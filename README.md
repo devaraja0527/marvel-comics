@@ -17,6 +17,15 @@ This project uses Spring Boot, Spring boot log4j2 and ibm watson dependencies.
 ### Config Requirement
 
 
+```xml
+<pluginRepositories>
+  <pluginRepository>
+    <id>comphenix-rep</id>
+    <name>Comphenix Maven Releases</name>
+    <url>http://repo.comphenix.net/content/groups/public</url>
+  </pluginRepository>
+</pluginRepositories>
+```
 
 
 ### Build Local
