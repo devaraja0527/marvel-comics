@@ -26,7 +26,8 @@ public class CommonUtils {
 
 	private final String DATE_FORMAT = "yyyy-MM-dd";
 
-	private final String FILE_PATH = "src/main/resources/marvel-charactors.json";
+	private final String FILE_PATH = "src/main/resources/marvel-characters.json";
+
 	@Autowired
 	MarvelApiConfig marvelApiConfig;
 
