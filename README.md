@@ -2,7 +2,7 @@
 
 This project is a simple Microservice code for retrieving Marvel characters ids, character details by character id and translated character description to specified language by character id. 
 
-This project uses Spring Boot, Spring boot log4j2 and ibm watson dependencies.
+This project uses Spring Boot, Spring boot log4j2  and ibm watson dependencies.
 
 
 ### REST API
