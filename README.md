@@ -75,10 +75,10 @@ For the following marvel key's create developer account in [https://developer.ma
 For API Url refer to API documentation in the same menu.
 
 ``` yml
-	marvel:
-	  url: {MARVEL_API_GATEWAY_URL}
-	  publicKey: {DEVELOPER_ACCOUNT_PUBLIC_KEY}
-	  privateKey: {DEVELOPER_ACCOUNT_PRIVE_KEY}	  
+ marvel:
+  url: {MARVEL_API_GATEWAY_URL}
+  publicKey: {DEVELOPER_ACCOUNT_PUBLIC_KEY}
+  privateKey: {DEVELOPER_ACCOUNT_PRIVE_KEY}	  
 ```
 
 **IBM Watson Translation API**
@@ -100,7 +100,7 @@ More about ibm language translator [https://www.ibm.com/docs/en/app-connect/clou
 ``` yml
 ibmwatson:
     url: {REGION_BASED_TRANSLATION_URL}
-     apiKey: {PRIVATE_API_KEY}  
+    apiKey: {PRIVATE_API_KEY}  
 ```
 
 
