@@ -11,6 +11,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.ibm.cloud.sdk.core.security.Authenticator;
@@ -26,7 +27,8 @@ public class CommonUtils {
 
 	private final String DATE_FORMAT = "yyyy-MM-dd";
 
-	private final String FILE_PATH = "src/main/resources/marvel-characters.json";
+	@Value("${file.path}")
+	private String filePath;
 
 	@Autowired
 	MarvelApiConfig marvelApiConfig;
@@ -67,8 +69,7 @@ public class CommonUtils {
 	}
 
 	public TranslationResult getTranslatedResult(String messagetoTranslate,
-
-			String sourceLanguage, String targetLanguage) throws Exception {
+												 String sourceLanguage, String targetLanguage) throws Exception {
 
 		String date = new SimpleDateFormat(DATE_FORMAT).format(new Date());
 
@@ -93,7 +94,7 @@ public class CommonUtils {
 
 	public void writeDatatoFile(String data) {
 		try {
-			FileWriter file = new FileWriter(FILE_PATH);
+			FileWriter file = new FileWriter(filePath);
 			file.write(data);
 			file.close();
 		} catch (Exception e) {
@@ -103,7 +104,7 @@ public class CommonUtils {
 
 	public FileReader readDatatoFile() {
 		try {
-			return new FileReader(FILE_PATH);
+			return new FileReader(filePath);
 
 		} catch (Exception e) {
 			throw new EventFailedException(e.getMessage());

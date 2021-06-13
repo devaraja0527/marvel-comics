@@ -1,4 +1,4 @@
-#### Marvel Comics
+v1/#### Marvel Comics
 
 This project is a simple Microservice code for retrieving Marvel characters ids, character details by character id and translated character description to specified language by character id. 
 
@@ -12,7 +12,7 @@ This API retrieve's all the character ids from JSON file stored in **'src/main/r
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/characters 
+  End Point: http://localhost:8080/v1/characters 
   Content-type : application/json
   SAMPLE JSON RESPONSE:
   [1011334,1017100,1009144]   
@@ -23,7 +23,7 @@ This API retrieve's character Id,name , description and thumbnail as below from 
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/characters/{characterId}
+  End Point: http://localhost:8080/v1/characters/{characterId}
   Content-type : application/json
   SAMPLE JSON RESPONSE:
    {
@@ -44,7 +44,7 @@ Request Param (language) can be given ISO-639-1 code or full language name
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/characters/{characterId}?language={languageCode}
+  End Point: http://localhost:8080/v1/scharacters/{characterId}?language={languageCode}
   Content-type : application/json
   SAMPLE JSON RESPONSE:
    {

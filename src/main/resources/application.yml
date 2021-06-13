@@ -1,8 +1,20 @@
 server:
   servlet:
-    contextPath: /v1/public
+    contextPath: /MarvelCharacters/${info.app.version}
 
+info:
+  app:
+    name: marvel-comics
+    version: v1
+    description: Marvel Characters
+
+spring:
+  application:
+    name: ${info.app.name}
     
+    
+file:
+  path: src/main/resources/marvel-characters.json    
 
 marvel:
   url: http://gateway.marvel.com/v1/public

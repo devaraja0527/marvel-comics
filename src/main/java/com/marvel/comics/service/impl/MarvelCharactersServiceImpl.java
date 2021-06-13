@@ -44,7 +44,7 @@ public class MarvelCharactersServiceImpl implements MarvelCharactersService {
 	CommonUtils commonUtils;
 
 	@Autowired
-	@Qualifier("getJSONParserBean")
+	@Qualifier("jsonParser")
 	JSONParser jsonParser;
 
 	@Autowired

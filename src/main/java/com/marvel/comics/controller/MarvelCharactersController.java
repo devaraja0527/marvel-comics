@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +17,10 @@ import com.marvel.comics.model.Character;
 import com.marvel.comics.service.MarvelCharactersService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiParam;
 
 @RestController
+@Validated
 @Api(value = "marvel-characters")
 public class MarvelCharactersController implements MarvelCharectersApi {
 
@@ -44,7 +47,8 @@ public class MarvelCharactersController implements MarvelCharectersApi {
 	}
 
 	@Override
-	public ResponseEntity<Character> getCharactersById(@PathVariable("characterId") Long characterId) {
+	public ResponseEntity<Character> getCharactersById(
+			@ApiParam(value = "Character Id", required = true) @PathVariable("characterId") Long characterId) {
 		Character data = null;
 		try {
 
@@ -61,8 +65,9 @@ public class MarvelCharactersController implements MarvelCharectersApi {
 	}
 
 	@Override
-	public ResponseEntity<Character> getTranslatedCharectersById(@PathVariable("characterId") Long characterId,
-			@RequestParam("language") String language) {
+	public ResponseEntity<Character> getTranslatedCharectersById(
+			@ApiParam(value = "Character Id", required = true) @PathVariable("character-id") Long characterId,
+			@ApiParam(value = "Language", required = true) @RequestParam(value = "language", required = true) String language) {
 
 		Character data = null;
 		try {
