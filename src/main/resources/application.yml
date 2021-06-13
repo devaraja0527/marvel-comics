@@ -18,6 +18,7 @@ file:
 
 marvel:
   url: http://gateway.marvel.com/v1/public
+  getPath: /characters
   publicKey: fe7ca2ecda048009a30a86016adf448f
   privateKey: b472bdc3d52b20cb1e69f14c335799c07124cd7c
 

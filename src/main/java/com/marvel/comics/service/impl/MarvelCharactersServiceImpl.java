@@ -21,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ibm.watson.language_translator.v3.model.TranslationResult;
+import com.marvel.comics.config.MarvelApiConfig;
 import com.marvel.comics.exception.BaseException;
 import com.marvel.comics.exception.EventFailedException;
 import com.marvel.comics.model.Character;
@@ -35,6 +36,9 @@ public class MarvelCharactersServiceImpl implements MarvelCharactersService {
 	private static final Logger logger = LogManager.getLogger(MarvelCharactersServiceImpl.class);
 
 	private static final String ENGLISH = "ENGLISH";
+
+	@Autowired
+	MarvelApiConfig marvelApiConfig;
 
 	@Autowired
 	@Qualifier("marvelApiRestTemplate")
@@ -78,8 +82,9 @@ public class MarvelCharactersServiceImpl implements MarvelCharactersService {
 		ResponseEntity<MarvelAPIResponseWrapper> responseEntity = null;
 		try {
 
-			responseEntity = restTemplate.exchange(commonUtils.getMarvelAPIUrl("/characters/" + characterId),
-					HttpMethod.GET, null, MarvelAPIResponseWrapper.class);
+			responseEntity = restTemplate.exchange(
+					commonUtils.getMarvelAPIUrl(marvelApiConfig.getGetPath() + "/" + characterId), HttpMethod.GET, null,
+					MarvelAPIResponseWrapper.class);
 
 			DataObject dataOBJ = responseEntity.getBody().getData();
 
@@ -127,8 +132,8 @@ public class MarvelCharactersServiceImpl implements MarvelCharactersService {
 			for (; offsetVal <= 300; offsetVal = (offsetVal + limit)) {
 
 				ResponseEntity<String> responseEntity = restTemplate.exchange(
-						commonUtils.getMarvelAPIUrlWithLimit("/characters", limit, offsetVal), HttpMethod.GET, null,
-						String.class);
+						commonUtils.getMarvelAPIUrlWithLimit(marvelApiConfig.getGetPath(), limit, offsetVal),
+						HttpMethod.GET, null, String.class);
 
 				JSONObject json = (JSONObject) jsonParser.parse(responseEntity.getBody());
 				JSONObject dataOBJ = (JSONObject) json.get("data");

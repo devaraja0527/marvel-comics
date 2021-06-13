@@ -1,4 +1,4 @@
-v1/#### Marvel Comics
+#### Marvel Comics
 
 This project is a simple Microservice code for retrieving Marvel characters ids, character details by character id and translated character description to specified language by character id. 
 
@@ -6,13 +6,14 @@ This project uses Spring Boot, Spring boot log4j2  and ibm watson dependencies.
 
 
 ### REST API
+
 **Get All Character Ids** 
 
 This API retrieve's all the character ids from JSON file stored in **'src/main/resources/application.yml'** file.
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/v1/characters 
+  End Point: http://localhost:8080/MarvelCharacters/v1/characters 
   Content-type : application/json
   SAMPLE JSON RESPONSE:
   [1011334,1017100,1009144]   
@@ -23,7 +24,7 @@ This API retrieve's character Id,name , description and thumbnail as below from 
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/v1/characters/{characterId}
+  End Point: http://localhost:8080/MarvelCharacters/v1/characters/{characterId}
   Content-type : application/json
   SAMPLE JSON RESPONSE:
    {
@@ -44,7 +45,7 @@ Request Param (language) can be given ISO-639-1 code or full language name
 
 ```bash
   Method : GET
-  End Point: http://localhost:8080/v1/scharacters/{characterId}?language={languageCode}
+  End Point: http://localhost:8080/MarvelCharacters/v1/characters/{character-id}?language={languageCode}
   Content-type : application/json
   SAMPLE JSON RESPONSE:
    {
@@ -85,6 +86,7 @@ For API Url refer to API documentation in the same menu.
 ``` yml
  marvel:
   url: {MARVEL_API_GATEWAY_URL}
+  getPath: /characters
   publicKey: {DEVELOPER_ACCOUNT_PUBLIC_KEY}
   privateKey: {DEVELOPER_ACCOUNT_PRIVE_KEY}	  
 ```
@@ -112,11 +114,6 @@ ibmwatson:
 ```
 
 
-
-
-
-
-
 ### Build Local
 
 ```bash
@@ -127,8 +124,23 @@ $ mvn clean package
 
 ```bash
 $ mvn spring-boot:run
-```
 
+```
 View the application running here: [http://localhost:8080](http://localhost:8080)
+
+Application Context Path :: **/MarvelCharacters/v1**
+
+
+
+### Swagger 
+
+After Successful application start you can find the swagger below 
+
+Swagger UI :: [http://localhost:8080/MarvelCharacters/v1/swagger-ui.html#/](http://localhost:8080/MarvelCharacters/v1/swagger-ui.html#/)
+
+Swagger Docs :: [http://localhost:8080/MarvelCharacters/v1/v2/api-docs](http://localhost:8080/MarvelCharacters/v1/v2/api-docs)
+
+
+
 
 

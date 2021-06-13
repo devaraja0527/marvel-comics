@@ -15,12 +15,14 @@ public class MarvelApiConfig implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private String url;
-	
+
 	private String publicKey;
-	
+
 	private String privateKey;
+
+	private String getPath;
 
 	public String getUrl() {
 		return url;
@@ -46,9 +48,18 @@ public class MarvelApiConfig implements Serializable {
 		this.privateKey = privateKey;
 	}
 
+	public String getGetPath() {
+		return getPath;
+	}
+
+	public void setGetPath(String getPath) {
+		this.getPath = getPath;
+	}
+
 	@Override
 	public String toString() {
-		return "MarvelApiConfig [url=" + url + ", publicKey=" + publicKey + ", privateKey=" + privateKey + "]";
+		return "MarvelApiConfig [url=" + url + ", publicKey=" + publicKey + ", privateKey=" + privateKey + ", getPath="
+				+ getPath + "]";
 	}
-	
+
 }

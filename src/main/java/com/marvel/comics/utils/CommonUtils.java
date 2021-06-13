@@ -68,8 +68,8 @@ public class CommonUtils {
 		return DigestUtils.md5Hex(timeStamp + marvelApiConfig.getPrivateKey() + marvelApiConfig.getPublicKey());
 	}
 
-	public TranslationResult getTranslatedResult(String messagetoTranslate,
-												 String sourceLanguage, String targetLanguage) throws Exception {
+	public TranslationResult getTranslatedResult(String messagetoTranslate, String sourceLanguage,
+			String targetLanguage) throws Exception {
 
 		String date = new SimpleDateFormat(DATE_FORMAT).format(new Date());
 
